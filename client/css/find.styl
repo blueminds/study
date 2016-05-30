@@ -1,25 +1,10 @@
-@import 'index.styl'
-
-
-.find-option
-  width: 100%
-
-.find-separator
-  padding: 0.5em
-  border-bottom: 1px solid #f2f2f2
-
-.premium
-  background: #FFCB79
-  border: 2px solid #FFAD2C
-  padding: 1em
-
+@import '../resources/global/global.styl'
+@import 'search_component.styl'
+body
+  background: white
 
 .curso:hover
   box-shadow: 0 3px 6px rgba(0,0,0,0.3) , 0 0 1px rgba(0,0,0,0.3) , 0 0 15px rgba(158,182,209,0.2);
-
-.another-courses
-  background: #f6f6f6;
-  padding: 1em
 
 .curso
   width: 90%
@@ -34,12 +19,21 @@
   a
     color: blue
 
-#search-container
-  margin-top: 1em
+#choose-title
+  font-weight: bold
 
-
-#find-filter-container
-  width: 75%
+  div p
+    font-size: 32px
+    padding-top: 10px
+    padding-bottom: 20px
+#filters-container
+  width: 95%
   margin: 0 auto
-  background: white
-  padding: 1em
+
+  form
+    width: 95%
+    margin: 0 auto
+    margin-bottom: 30px
+
+    .input-field
+      width: 100%

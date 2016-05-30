@@ -4,6 +4,7 @@ module.exports = function(grunt) {
     stylus: {
             release: {
                 files: { 'resources/global/global.css': ['resources/global/global.styl'],
+                         'topbar/topbar.css': ['topbar/topbar.styl'],
                          'css/index.css': ['css/index.styl'],
                          'css/find.css': ['css/find.styl'],
                          'css/course_detail.css': ['css/course_detail.styl'],
@@ -17,6 +18,7 @@ module.exports = function(grunt) {
         options: { livereload: true },
         styles: {
             files: ['resources/global/global.styl',
+                    'topbar/topbar.styl',
                     'css/index.styl',
                     'css/find.styl',
                     'css/course_detail.styl'
