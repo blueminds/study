@@ -42,6 +42,7 @@ class Escuela(models.Model):
 
 class Curso(models.Model):
     nombre = models.CharField(max_length=50, blank = True )
+    precio = models.IntegerField()
     numero_horas_total = models.CharField(max_length=10, blank = True )
     numero_horas_semana = models.CharField(max_length=10, blank = True )
     pais = models.CharField(max_length=20, blank = True )
@@ -52,6 +53,7 @@ class Curso(models.Model):
     escuela =  models.ForeignKey('Escuela', null = True,  blank = True)
     Actividades = models.ManyToManyField("Actividad", blank = True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
+
 
     def __unicode__(self):
         return self.nombre

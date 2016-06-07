@@ -10,7 +10,7 @@ class EscuelaAdmin(admin.ModelAdmin):
     #filter_horizontal = ()
 
 class CursoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'numero_horas_total', 'numero_horas_semana', 'pais','escuela', 'fecha_creacion', )
+    list_display = ('nombre','precio','numero_horas_total', 'numero_horas_semana', 'pais','escuela', 'fecha_creacion',  )
     list_filter = ('pais', 'ciudad',)
     search_fields = ['nombre', 'numero_horas_total', 'numero_horas_semana', 'pais   ', ]
     filter_horizontal = ('Actividades',)
