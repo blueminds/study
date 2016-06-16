@@ -8,5 +8,5 @@ var Storage = {
 }
 
 var Server_settings = {
-  url : 'http://localhost:10000/',
+  url : 'http://localhost:8080/',
 }
