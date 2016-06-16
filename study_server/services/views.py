@@ -31,6 +31,10 @@ class CursoList(APIView):
         filter = body
 
 
-        cursos = models.Curso.objects.filter(precio__lte = filter['precio_maximo'], precio__gte = filter['precio_minimo'])
+        cursos = models.Curso.objects.filter(
+            precio__lte = filter['precio_maximo'],
+            precio__gte = filter['precio_minimo'],
+            pais__contains = filter['pais']
+            )
         serializer = serializers.CursoSerializer(cursos, many=True)
         return JSONResponse(serializer.data)

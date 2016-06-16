@@ -8,10 +8,11 @@
 
   $(".btn-search").click(function(){
 
-    if(filterFormValidation( $("#precio_minimo").val(),  $("#precio_maximo").val() )){
+    if(filterFormValidation( $("#precio_minimo").val(),  $("#precio_maximo").val(), $("#pais").val() )){
       var filter = {
         "precio_minimo": ( $("#precio_minimo").val() === '') ? 0 : $("#precio_minimo").val() ,
-        "precio_maximo": ( $("#precio_maximo").val() === '') ? 0 : $("#precio_maximo").val()
+        "precio_maximo": ( $("#precio_maximo").val() === '') ? 0 : $("#precio_maximo").val() ,
+        "pais": ( $("#pais").val() === '') ? null : $("#pais").val()
       };
 
       Storage.add("filter", JSON.stringify(filter));
