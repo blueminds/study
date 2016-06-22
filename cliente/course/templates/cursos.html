@@ -1,0 +1,41 @@
+<script id="cursos-template" type="x-tmpl-mustache">
+  <div class="row ">
+    <div class="col-md-9 col-md-offset-2 bg-search">
+    <div class="msg-cont">
+      <h1>Elige un curso  en los lugares más emocionantes de la Tierra</h1>
+      <form class="form-inline">
+        <div class="form-group">
+
+          <input class="form-control" id="type" placeholder="Tipo">
+        </div>
+        <div class="form-group">
+
+          <input class="form-control" id="level" placeholder="Nivel">
+        </div>
+        <div class="form-group">
+
+          <input class="form-control" id="citie" placeholder="Ciudad">
+        </div>
+        <div class="form-group">
+
+          <input class="form-control" id="max_price" placeholder="Precio Maximo">
+        </div>
+        <button type="submit" class="btn btn-primary src-btn">Filtrar</button>
+      </form>
+    </div>
+
+    </div>
+  </div>
+{{#cursos}}
+  <div class="col-md-4" >
+    <div class="card">
+        <img class="card-img-top" src="./asset/img_card.svg" alt="Card image cap">
+        <div class="card-block">
+          <h4 class="card-title">Card title</h4>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary booking-course">Reservar</a>
+        </div>
+      </div>
+  </div>
+{{/cursos}}
+</script>
