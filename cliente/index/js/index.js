@@ -1,5 +1,3 @@
-///<reference path="../../typings/typings/tsd.d.ts"/>
-///<reference path="../../course/js/course.ts"/>
 define(["require", "exports", "../../course/js/course"], function (require, exports, course_1) {
     "use strict";
     var IndexInitialData = (function () {
@@ -46,14 +44,19 @@ define(["require", "exports", "../../course/js/course"], function (require, expo
         };
         IndexInitialData.prototype.btn_search_handler = function () {
             $(".src-btn").click(function () {
-                $('html, body').animate({ scrollTop: $('#intereactive-container').offset().top }, { duration: 2000 });
                 var c = new course_1.Course();
-                var promise = c.find();
+                var category = $("#category").val() == '' ? "null" : $("#category").val();
+                var level = $("#level").val() == '' ? "null" : $("#level").val();
+                var country = $("#country").val() == '' ? "null" : $("#country").val();
+                var max_price = $("#max_price").val() == '' ? "0" : $("#max_price").val();
+                var promise = c.find(category, level, country, max_price);
                 promise.then(function (response) {
-                    $("#intereactive-container").html(response);
+                    $("#intereactive-container").html(response['rendered']);
+                    $('html, body').animate({ scrollTop: $('#intereactive-container').offset().top }, { duration: 2000 });
+                    IndexInitialData.cursos = response['cursos'];
                     c.addTemplateHandlers();
-                }, function (err) { console.log(err); });
-                return false;
+                    return false;
+                }, function (err) { alert("no se encontraron cursos"); });
             });
         };
         IndexInitialData.prototype.init = function () {
@@ -61,6 +64,7 @@ define(["require", "exports", "../../course/js/course"], function (require, expo
             this.loadFiltersData();
             this.btn_search_handler();
         };
+        IndexInitialData.cursos = [];
         return IndexInitialData;
     }());
     var index = new IndexInitialData();

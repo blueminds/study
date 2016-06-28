@@ -1,6 +1,6 @@
 ///<reference path="../../typings/typings/tsd.d.ts"/>
 ///<reference path="../../course/js/course.ts"/>
-
+///<reference path="../../conf/conf.ts"/>
 
 
 
@@ -8,11 +8,9 @@ import {Course} from "../../course/js/course";
 
 
 class IndexInitialData{
+  public static cursos:any = [];
 
   loadFiltersData(){
-
-
-
 
     var coruse_types = [
       "Tipo 1",
@@ -66,21 +64,31 @@ class IndexInitialData{
   btn_search_handler(){
 
     $(".src-btn").click(function(){
-      $('html, body').animate({ scrollTop: $('#intereactive-container').offset().top }, { duration: 2000 });
+      
 
       var c = new Course();
-      var promise:any = c.find();
+      var category:string = $("#category").val() == '' ? "null" :  $("#category").val();
+      var level:string = $("#level").val() == '' ? "null" :  $("#level").val();
+      var country:string = $("#country").val() == '' ? "null" :  $("#country").val();
+      var max_price:string = $("#max_price").val() == '' ? "0" :  $("#max_price").val();
+
+
+      var promise:any = c.find(category, level, country, max_price);
+
 
       promise.then(function(response){
-        $("#intereactive-container").html(response);
+        $("#intereactive-container").html(response['rendered']);
+        $('html, body').animate({ scrollTop: $('#intereactive-container').offset().top }, { duration: 2000 });
+
+        IndexInitialData.cursos = response['cursos'];
         c.addTemplateHandlers();
+        return false;
 
-      }, function(err){ console.log(err)});
+      }, function(err){ alert("no se encontraron cursos")});
 
-
-
-      return false;
     });
+
+
   }
 
   init(){
