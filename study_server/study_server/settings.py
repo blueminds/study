@@ -39,8 +39,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'registros',
-    'services',
+    #'registros',
+    #'services',
+
+    'api_gateway',
+    'resources',
+    'model',
 
 )
 
